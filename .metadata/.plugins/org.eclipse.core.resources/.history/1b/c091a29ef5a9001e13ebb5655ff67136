@@ -1,0 +1,105 @@
+package com.example.demo.Config;
+
+import java.lang.annotation.Annotation;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.client.RestTemplate;
+
+@Configuration
+public class EmployeeAppConfig {
+
+	
+	@Bean
+	public ModelMapper modelMapper()
+	{
+		return new ModelMapper();
+	}
+
+//	@Bean
+//	public RestTemplate restTemplate()
+//	{
+//		return new RestTemplate();
+//	}
+	
+	@Bean
+	public FeignClient fiegnClient()
+	{
+		return new FeignClient() {
+			
+			@Override
+			public Class<? extends Annotation> annotationType() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public String value() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public String url() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public String[] qualifiers() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public boolean primary() {
+				// TODO Auto-generated method stub
+				return false;
+			}
+			
+			@Override
+			public String path() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public String name() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public Class<?> fallbackFactory() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public Class<?> fallback() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public boolean dismiss404() {
+				// TODO Auto-generated method stub
+				return false;
+			}
+			
+			@Override
+			public String contextId() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public Class<?>[] configuration() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+		};
+	}
+}

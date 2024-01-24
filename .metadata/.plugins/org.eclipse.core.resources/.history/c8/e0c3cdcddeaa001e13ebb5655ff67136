@@ -1,0 +1,37 @@
+package com.example.demo.Service;
+
+import java.util.List;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.Entity.Address;
+import com.example.demo.Repository.AddressRepo;
+import com.example.demo.Response.AddressResponse;
+
+@Service
+public class AddressService {
+
+	@Autowired
+	private AddressRepo ar;
+	
+	@Autowired
+	private ModelMapper mp;
+	
+	public AddressResponse findEmployeeByEid(int employeeId)
+	{
+		Address address = ar.findAddressByEmployeeId(employeeId);
+		
+//		impl modelmapper
+		AddressResponse map = mp.map(address, AddressResponse.class);
+		return map;
+	}
+	
+	public List<AddressResponse> findAll()
+	{
+		List<Address> findAll = ar.findAll();
+		AddressResponse map1 = mp.map(findAll, AddressResponse.class);
+		return (List<AddressResponse>) map1;
+	}
+}
